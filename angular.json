@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular9": {
+    "angualr16": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,12 +13,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular9",
+            "outputPath": "dist/ng2-daterangepicker",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -28,7 +27,13 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -41,7 +46,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -59,23 +63,24 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular9:build"
+            "browserTarget": "ng2-daterangepicker:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular9:build:production"
+              "browserTarget": "ng2-daterangepicker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular9:build"
+            "browserTarget": "ng2-daterangepicker:build"
           }
         },
         "test": {
@@ -95,28 +100,15 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular9:serve"
+            "devServerTarget": "ng2-daterangepicker:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular9:serve:production"
+              "devServerTarget": "ng2-daterangepicker:serve:production"
             }
           }
         }
@@ -129,14 +121,15 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ng2-daterangepicker/tsconfig.lib.json",
             "project": "projects/ng2-daterangepicker/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng2-daterangepicker/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ng2-daterangepicker/tsconfig.lib.prod.json",
+              "project": "projects/ng2-daterangepicker/ng-package.json"
             }
           }
         },
@@ -147,21 +140,8 @@
             "tsConfig": "projects/ng2-daterangepicker/tsconfig.spec.json",
             "karmaConfig": "projects/ng2-daterangepicker/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ng2-daterangepicker/tsconfig.lib.json",
-              "projects/ng2-daterangepicker/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
-  },
-  "defaultProject": "angular9"
+  }
 }

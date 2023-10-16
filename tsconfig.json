@@ -7,10 +7,10 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "es2020",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES2022",
     "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "node_modules/@types"
@@ -20,11 +20,12 @@
       "dom"
     ],
     "paths": {
-      "ng2-daterangepicker": [
+      "argela-daterangepicker": [
         "dist/ng2-daterangepicker/ng2-daterangepicker",
         "dist/ng2-daterangepicker"
       ]
-    }
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
