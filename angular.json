@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angualr16": {
+    "angular16": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng2-daterangepicker",
+            "outputPath": "dist/angular16",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng2-daterangepicker:build"
+            "browserTarget": "angular16:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng2-daterangepicker:build:production"
+              "browserTarget": "angular16:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng2-daterangepicker:build"
+            "browserTarget": "angular16:build"
           }
         },
         "test": {
